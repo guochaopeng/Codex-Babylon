@@ -20,7 +20,11 @@
     "cors": "^2.8.5",
     "dotenv": "^11.0.0",
     "express": "^4.17.2",
+    "http-proxy-agent": "^7.0.2",
+    "http-proxy-middleware": "^2.0.6",
+    "https-proxy-agent": "^7.0.4",
     "isomorphic-fetch": "^3.0.0",
+    "node-libcurl": "^4.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },

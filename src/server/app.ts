@@ -1,11 +1,15 @@
 import express from "express";
 import path from "path";
-import { context, getCompletion } from "./model";
+import { context, getCompletion,getCompletion_curl} from "./model";
+import { createProxyMiddleware } from "http-proxy-middleware";
 import cors from "cors";
+import http from 'http';
+
 
 const app = express();
 app.use(express.json());
 app.use(express.static(__dirname + "/public"));
+
 
 const port = process.env.SERVER_PORT;
 app.use(cors({ origin: `http://localhost:${process.env.CLIENT_PORT}` }));
@@ -17,7 +21,7 @@ app.get("/", (_req, res) => {
 // Gets natural language and returns code
 app.post("/codegen", async (req, res) => {
     console.log(`Received natural language command: '${req.body.text}'`);
-    const response = await getCompletion(req.body.text);
+    const response = await getCompletion_curl(req.body.text);
     res.send(JSON.stringify(response));
 });
 
